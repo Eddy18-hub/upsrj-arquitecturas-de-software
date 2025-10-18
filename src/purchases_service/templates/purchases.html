@@ -5,15 +5,15 @@ Politécnica de Santa Rosa
 Materia: Arquitecturas de Software
 Profesor: Jesús Salvador López Ortega
 Grupo: ISW28
-Archivo: users.html
-Descripción: Frontend del microservicio.
+Archivo: purchases.html
+Descripción: Frontend del microservicio de compras.
 ============================================================
 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Usuarios</title>
+    <title>Lista de Compras</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -31,7 +31,7 @@ Descripción: Frontend del microservicio.
         h2 {
             color: #333;
         }
-        .user-card {
+        .purchase-card {
             background-color: #e9f5ff;
             padding: 1rem;
             border-radius: 6px;
@@ -53,20 +53,21 @@ Descripción: Frontend del microservicio.
 <body>
     <div class="container">
         <div class="link">
-            <a href="/users/create">Agregar Nuevo Usuario</a>
+            <a href="/purchases/create">Registrar Nueva Compra</a>
         </div>
-        <h2>Usuarios</h2>
+        <h2>Compras</h2>
 
-        {% if users %}
-            {% for user in users %}
-                <div class="user-card">
-                    <p><strong>ID:</strong> {{ user.id }}</p>
-                    <p><strong>Nombre:</strong> {{ user.name }}</p>
-                    <p><strong>Compras:</strong> {{ user.purchased_products }}</p>
+        {% if purchases %}
+            {% for purchase in purchases %}
+                <div class="purchase-card">
+                    <p><strong>ID:</strong> {{ purchase.id }}</p>
+                    <p><strong>User ID:</strong> {{ purchase.user_id }}</p>
+                    <p><strong>Product ID:</strong> {{ purchase.product_id }}</p>
+                    <p><strong>Timestamp:</strong> {{ purchase.timestamp }}</p>
                 </div>
             {% endfor %}
         {% else %}
-            <p>No hay usuarios registrados.</p>
+            <p>No hay compras registradas.</p>
         {% endif %}
     </div>
 </body>

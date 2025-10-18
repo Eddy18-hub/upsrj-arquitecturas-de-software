@@ -39,7 +39,7 @@ Descripción: Frontend del microservicio.
     </style>
 </head>
 <body>
-    <h1>Gateway - Usuarios y Productos</h1>
+    <h1>Gateway - Usuarios, Productos y compras</h1>
 
     <div class="section">
         <h2>Usuarios</h2>
@@ -62,6 +62,19 @@ Descripción: Frontend del microservicio.
             </div>
         {% else %}
             <p>No hay productos.</p>
+        {% endfor %}
+    </div>
+
+    <div class="section">
+        <h2>compras</h2>
+        {% for purchase in purchases %}
+            <div class="item">
+                <strong>ID de usuario:</strong> {{ purchase.user_id }} <br>
+                <strong>ID del producto:</strong> {{ purchase.product_id }} <br>
+                <strong>Timestamp:</strong> {{ purchase.timestamp }} <br>
+            </div>
+        {% else %}
+            <p>No hay compras.</p>
         {% endfor %}
     </div>
 
